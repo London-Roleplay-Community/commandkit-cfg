@@ -19,7 +19,8 @@ const maybeUpperCase = (str: string) => {
 
 const config: Config = {
   title: 'CommandKit',
-  tagline: 'The discord.js meta-framework',
+  tagline:
+    'The discord.js meta-framework with features such as AI-powered command handler, analytics, feature flags, and more.',
   favicon: 'img/favicon.ico',
   url: 'https://commandkit.dev',
   baseUrl: '/',
