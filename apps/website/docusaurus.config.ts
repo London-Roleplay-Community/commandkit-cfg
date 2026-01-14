@@ -162,7 +162,20 @@ const config: Config = {
     },
     footer: {
       style: 'light',
-      copyright: `
+      copyright: `<a
+        href="https://vercel.com?utm_source=commandkit&utm_campaign=oss"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mx-auto"
+      >
+        <img
+          src="https://vercel.com/button"
+          alt="Deploy with Vercel"
+          style="height: 32px"
+        />
+      </a>
+      <br/>
+      <br/>
       GPL-3.0-only © ${new Date().getFullYear()} <a href="https://neplextech.com?utm_source=commandkit" target="_blank" rel="noopener noreferrer">Neplex</a>.`,
     },
     prism: {
