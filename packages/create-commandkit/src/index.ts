@@ -269,7 +269,7 @@ To start your bot${projectDir !== '.' ? `, ${colors.magenta(`cd ${projectDir}`)}
 • Documentation: ${colors.blue('https://commandkit.dev')}
 • GitHub: ${colors.blue('https://github.com/neplextech/commandkit')}
 • Neplex: ${colors.blue('https://neplextech.com')}
-• Discord community: ${colors.blue('https://neplextech.com/discord')}
+• Discord community: ${colors.blue('https://commandkit.dev/discord')}
 
 Happy coding! 🚀`,
   );

@@ -71,7 +71,7 @@ const data = {
     },
     {
       title: 'Discord',
-      url: 'https://neplextech.com/discord',
+      url: 'https://commandkit.dev/discord',
       icon: FaDiscord,
     },
   ],

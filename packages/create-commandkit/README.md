@@ -1,7 +1,7 @@
 <div align="center">
     <img src="https://raw.githubusercontent.com/neplextech/commandkit/main/apps/website/static/img/ckit_logo.svg" width="60%" />
     <br />
-    <a href="https://neplextech.com/discord"><img src="https://img.shields.io/discord/1055188344188973066?color=5865F2&logo=discord&logoColor=white" alt="support server" /></a>
+    <a href="https://commandkit.dev/discord"><img src="https://img.shields.io/discord/1055188344188973066?color=5865F2&logo=discord&logoColor=white" alt="support server" /></a>
     <a href="https://www.npmjs.com/package/create-commandkit"><img src="https://img.shields.io/npm/v/create-commandkit?maxAge=3600" alt="npm version" /></a>
     <a href="https://www.npmjs.com/package/create-commandkit"><img src="https://img.shields.io/npm/dt/create-commandkit?maxAge=3600" alt="npm downloads" /></a>
 </div>
@@ -98,4 +98,4 @@ npx create-commandkit@latest --list-examples
 
 ## Support and Suggestions
 
-Submit any queries or suggestions in our [Discord community](https://neplextech.com/discord).
+Submit any queries or suggestions in our [Discord community](https://commandkit.dev/discord).

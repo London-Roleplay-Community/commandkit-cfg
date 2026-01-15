@@ -154,7 +154,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://neplextech.com/discord',
+          href: 'https://commandkit.dev/discord',
           label: 'Discord',
           position: 'right',
         },
