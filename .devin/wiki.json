@@ -1,0 +1,304 @@
+{
+  "repo_notes": [
+    {
+      "content": ""
+    }
+  ],
+  "pages": [
+    {
+      "title": "Overview",
+      "purpose": "Introduce CommandKit as a Discord.js meta-framework, explaining its purpose, key features, and overall architecture at a high level",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Monorepo Structure",
+      "purpose": "Document the monorepo organization, workspace packages, shared configurations, and how the packages relate to each other",
+      "parent": "Overview",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Package Ecosystem",
+      "purpose": "Catalog all packages in the monorepo (core, plugins, apps) with brief descriptions and their relationships",
+      "parent": "Overview",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "purpose": "Guide users through creating their first CommandKit bot, from scaffolding to running their first commands",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Installation and Project Setup",
+      "purpose": "Explain how to use create-commandkit to scaffold a new project, including template options and configuration",
+      "parent": "Getting Started",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Configuration System",
+      "purpose": "Document commandkit.config.ts structure, available options, and how to configure the framework",
+      "parent": "Getting Started",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Core Framework",
+      "purpose": "Deep dive into the CommandKit class, initialization lifecycle, and fundamental architecture",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Command System",
+      "purpose": "Explain how commands work, including command types (slash, message, context menu), file structure, and registration",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Chat Input Commands (Slash Commands)",
+      "purpose": "Detail slash command implementation, options, autocomplete, and Discord API integration",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Message Commands",
+      "purpose": "Document prefix-based message commands, argument parsing, and prefix resolution system",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Context Menu Commands",
+      "purpose": "Explain user and message context menu commands, their registration and execution",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Command Metadata",
+      "purpose": "Document metadata system for permissions, guilds, aliases, and command customization",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Event System",
+      "purpose": "Explain Discord.js event handling, event file structure, parallel/sequential execution, and custom events",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Context and Execution",
+      "purpose": "Document the Context object, execution modes, environment management, and AsyncLocalStorage usage",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Context API",
+      "purpose": "Detail all Context properties and methods, type guards, and context cloning",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Environment and AsyncLocalStorage",
+      "purpose": "Explain CommandKitEnvironment, how context propagates across async operations, and deferred functions",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Middleware System",
+      "purpose": "Document middleware types (global, directory, command), execution order, and control signals",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Command Registration",
+      "purpose": "Explain how commands are registered with Discord's API, global vs guild commands, and update strategies",
+      "parent": "Core Framework",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Plugin System",
+      "purpose": "Introduce the plugin architecture, RuntimePlugin vs CompilerPlugin, lifecycle hooks, and plugin development",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Plugin Lifecycle and Hooks",
+      "purpose": "Document all plugin lifecycle hooks (bootstrap, loading, registration, runtime) and when they execute",
+      "parent": "Plugin System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Creating Plugins",
+      "purpose": "Guide for developing custom RuntimePlugins and CompilerPlugins with examples",
+      "parent": "Plugin System",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Official Plugins",
+      "purpose": "Overview of all official @commandkit/* plugins and their purposes",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "AI Plugin (@commandkit/ai)",
+      "purpose": "Document AI command execution, command-to-tool transformation, AI context, and model integration",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "AI Configuration and Models",
+      "purpose": "Explain configureAI options, model selection, prompt preparation, and message filtering",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Commands as AI Tools",
+      "purpose": "Detail how to expose commands as AI-executable tools, aiConfig, and parameter extraction",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "AI Context and Built-in Tools",
+      "purpose": "Document AiContext, useAIContext hook, and default tools like createEmbed and getChannelById",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "i18n Plugin (@commandkit/i18n)",
+      "purpose": "Document internationalization plugin, locale file structure, command translation, and runtime usage",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "i18n Setup and Configuration",
+      "purpose": "Explain i18n plugin initialization, i18next configuration, and locale directory structure",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Command Localization",
+      "purpose": "Detail translation metadata keys, command name/description localization, and Discord API integration",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    },
+    {
+      "title": "Runtime Translation",
+      "purpose": "Document ctx.locale(), fetchT(), and useI18n() hooks for accessing translations in commands and events",
+      "parent": "Official Plugins",
+      "page_notes": [
+        {
+          "content": ""
+        }
+      ]
+    }
+  ]
+}
