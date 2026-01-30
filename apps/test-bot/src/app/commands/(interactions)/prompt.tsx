@@ -10,8 +10,9 @@ import {
   StringSelectMenu,
   StringSelectMenuOption,
   FileUpload,
+  UserSelectMenu,
 } from 'commandkit';
-import { ComponentType, MessageFlags } from 'discord.js';
+import { MessageFlags } from 'discord.js';
 
 export const command: CommandData = {
   name: 'prompt',
@@ -67,6 +68,14 @@ export async function chatInput(ctx: ChatInputCommandContext) {
             emoji="👍"
           />
         </StringSelectMenu>
+      </Label>
+      <Label label="Member" description="The target of the command">
+        <UserSelectMenu
+          customId="member"
+          minValues={1}
+          maxValues={1}
+          defaultValues={[ctx.interaction.user.id]}
+        />
       </Label>
     </Modal>
   );

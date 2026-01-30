@@ -234,7 +234,7 @@ export class Context<
   /**
    * The client instance.
    */
-  public readonly client: Client;
+  public readonly client: Client<true>;
 
   /**
    * The command that this context belongs to.
@@ -265,7 +265,7 @@ export class Context<
     // these are assigned to readonly properties to make them accessible via object destructuring
     this.interaction = config.interaction;
     this.message = config.message;
-    this.client = commandkit.client;
+    this.client = commandkit.client as Client<true>;
     this.#store = config.environment?.store ?? config.store ?? new Collection();
     this.command = config.command;
 
