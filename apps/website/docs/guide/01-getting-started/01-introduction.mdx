@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: A brief intro to CommandKit
+description: What is CommandKit and why should you use it?
 ---
 
 import Logo from './Logo';
@@ -43,35 +43,233 @@ import Logo from './Logo';
   </div>
 </div>
 
-CommandKit is a powerful meta-framework for building Discord
-applications with [discord.js](https://discord.js.org/). It provides a
-simple and intuitive API for creating commands, handling interactions,
-and managing events. With CommandKit, you can focus on building your
-Discord application without worrying about the underlying
-complexities.
+## The problem
 
-## Key features
+Every time you start a new discord.js bot, you end up solving the same
+problems from scratch:
 
-- Beginner friendly 🚀
-- Suitable for both beginners and advanced users 👶👨‍💻
-- Slash + context menu commands + message commands support ✅
-- Automatic command registration and updates 🤖
-- Command middlewares for easy command management 🛠️
-- Localization support through
-  [`@commandkit/i18n`](../05-official-plugins/05-commandkit-i18n.mdx)
-  plugin 🌍
-- Powerful plugin system to extend functionality 🔌
-- Built-in command line interface for easy development 🖥️
-- Out-of-the-box support for TypeScript and JavaScript 📜
-- Customizable caching using the
-  [`@commandkit/cache`](../05-official-plugins/03-commandkit-cache.mdx)
-  plugin for speedy data fetching 🗄️
-- User installable/guild scoped commands 🔧
-- Custom events support 🔔
-- JSX support for easily managing Discord components 🎨
-- Easy to use interaction components (forget about collectors) 🧩
-- Less boilerplate code, more productivity 💪
-- ...and much more!
+- Writing a command handler that reads files, registers slash
+  commands, and routes interactions
+- Building an event handler that loads listeners and manages their
+  lifecycle
+- Wiring up interaction collectors for buttons, select menus, and
+  modals — then cleaning them up
+- Manually syncing command definitions with Discord's API every time
+  you change something
+- Setting up the same project structure, over and over
+
+If you've built more than one bot, you know the drill. Hours of
+boilerplate before you write a single line of actual bot logic. And if
+you're a beginner, figuring all of this out for the first time is
+overwhelming.
+
+## How is this different from other frameworks?
+
+There's no shortage of discord.js frameworks out there, but most of
+them solve a very narrow problem: they load your command and event
+files so you don't have to write a file reader yourself. You
+instantiate their handler class, point it at a folder, and that's
+about it. The rest — project structure, compilation, component
+handling, command syncing — is still on you.
+
+Frameworks like Sapphire go further and have decent features, but
+they're built around a heavy object-oriented design. Everything is a
+class. Commands extend base classes, listeners extend base classes,
+preconditions extend base classes. It works, but it demands a lot of
+boilerplate and a specific programming style that not everyone wants.
+
+**CommandKit takes a fundamentally different approach.** Instead of
+being a library you wire into your own setup, it works like a proper
+meta-framework — think Next.js for Discord bots. It ships with a smart
+CLI that handles bundling, TypeScript/JSX compilation, hot-reloading,
+and command registration automatically. You don't configure a bundler.
+You don't set up `tsconfig.json` for JSX. You don't write glue code to
+connect things together. You run `commandkit dev`, and everything just
+works.
+
+This is the key difference: most discord.js frameworks are
+**loaders**. CommandKit is a **framework** — it manages the entire
+development lifecycle, from project scaffolding to production builds,
+so you can focus entirely on your bot's logic.
+
+## Convention over configuration
+
+CommandKit follows a **convention-over-configuration** philosophy.
+Instead of requiring you to wire things together with config files,
+decorators, or registration calls, it uses sensible defaults and
+file-system conventions that just work.
+
+Put a file in `src/app/commands/` — it's a command. Put a file in
+`src/app/events/` — it's an event listener. Export a `chatInput`
+function — it handles slash commands. Export a `message` function in
+the same file — it handles prefix commands too. There's nothing to
+register, no class to extend, no decorator to apply.
+
+This matters because Discord bot projects aren't complex enterprise
+applications — they shouldn't need complex enterprise tooling. You
+want to write bot logic, not plumbing. Convention-over-configuration
+means the framework already knows what to do with your code based on
+_where it is and what it exports_, so you skip the setup entirely and
+go straight to building.
+
+If you've used Next.js, this will feel familiar: file-system routing,
+zero-config defaults, and a CLI that handles the build pipeline. Same
+idea, applied to Discord bots.
+
+## What makes it actually useful
+
+### Command and event handling — done for you
+
+This is the core of CommandKit. Drop your command files in a folder,
+export a function, and they just work. Slash commands, context menu
+commands, and even prefix (message) commands are all supported under a
+single unified command structure — no separate handler for each type.
+Commands are automatically registered and kept in sync with Discord.
+Events work the same way: create a file, export a listener, and
+CommandKit handles the rest.
+
+No more writing your own `loadCommands()` and `loadEvents()` utilities
+for every project.
+
+### JSX components — clean, readable Discord UI code
+
+If you've used React, you already know how much cleaner JSX makes UI
+code. CommandKit brings that same idea to Discord. Instead of chaining
+`ActionRowBuilder`, `ButtonBuilder`, `Poll`, and friends — which gets
+unreadable fast with even moderately complex layouts — you write
+declarative JSX that looks like what it produces.
+
+This isn't a gimmick. discord.js builder chains become genuinely hard
+to maintain as your components grow. JSX fixes that.
+
+### Built-in component handlers — forget about collectors
+
+This is where CommandKit goes beyond a basic command handler. Buttons,
+select menus, and modals get `onClick`, `onSelect`, and `onSubmit`
+handlers that are directly bound to the component. No more setting up
+`InteractionCollector` instances, managing timeouts, filtering
+interactions, and cleaning up afterwards.
+
+You define the component and its behavior in one place. CommandKit
+handles the interaction routing for you.
+
+### Command middlewares — run logic before and after execution
+
+Need to check permissions, log analytics, or gate commands behind a
+cooldown? Middlewares let you run code before and/or after any command
+executes, without modifying the command itself. This is a step above
+what a typical command handler gives you — it's a proper middleware
+layer, similar to what you'd find in web frameworks like Express.
+
+### Prefix commands — unified with slash commands
+
+CommandKit supports message-based (prefix) commands within the same
+command file that already handles slash commands, user context menus,
+and message context menus. One file, all command types. No separate
+prefix command handler needed.
+
+### Caching with Redis support
+
+CommandKit ships with a
+[`@commandkit/cache`](../05-official-plugins/03-commandkit-cache.mdx)
+plugin that provides a customizable caching layer. Need fast in-memory
+caching? Done. Need Redis-backed caching for persistence across
+restarts? Also done. No need to wire up your own caching logic. Just
+attach the `'use cache'` directive to a function and call it a day!
+
+```ts
+// The result of this function is automatically cached
+async function fetchUserData(userId: string) {
+  'use cache';
+  return db.users.findUnique({ id: userId });
+}
+```
+
+Learn more about caching in
+[the cache plugin documentation](../05-official-plugins/03-commandkit-cache.mdx).
+
+### Plugin system and custom events
+
+CommandKit is extensible through plugins. Plugins can hook into the
+framework lifecycle, add new behaviors, and even **emit custom
+events** — for example, a plugin could listen to an external API (a
+payment webhook, a game server, etc.) and fire events that your bot
+code can react to. This isn't just a wrapper around `node:events`;
+it's a structured extension point that lets plugins and your bot code
+communicate through a well-defined event system.
+
+Other official plugins include
+[`@commandkit/i18n`](../05-official-plugins/05-commandkit-i18n.mdx)
+for localization and
+[`@commandkit/analytics`](../05-official-plugins/06-commandkit-analytics.mdx)
+for usage tracking.
+
+### AI-powered command execution
+
+The [`@commandkit/ai`](../05-official-plugins/01-commandkit-ai.mdx)
+plugin lets users interact with your bot through natural language.
+Instead of memorizing slash command names and options, users can just
+talk to your bot — and the AI figures out which command to run and
+with what parameters.
+
+Under the hood, it uses the [AI SDK](https://ai-sdk.dev) to connect to
+models like Google Gemini, OpenAI, and others. You define an `ai`
+export in your command file with a Zod schema describing the expected
+parameters, and the AI handles the rest — parsing natural language
+into structured input and calling your command function.
+
+```ts title="src/app/commands/greet.ts"
+import type { AiConfig, AiCommand } from '@commandkit/ai';
+import { z } from 'zod';
+
+export const aiConfig: AiConfig = {
+  inputSchema: z.object({
+    username: z.string().describe('The username to greet'),
+  }),
+};
+
+export const ai: AiCommand<typeof aiConfig> = async (ctx) => {
+  const { username } = ctx.ai.params;
+  await ctx.message.reply(`Hello, ${username}!`);
+};
+```
+
+Now users can say `@bot say hi to John` and it just works. You also
+get built-in tools (fetching users, channels, guild info), custom tool
+support, lifecycle hooks, and per-user model selection. It's a full AI
+integration layer, not just a chatbot wrapper.
+
+Learn more in
+[the AI plugin documentation](../05-official-plugins/01-commandkit-ai.mdx).
+
+### TypeScript and JavaScript — zero config
+
+CommandKit works with both TypeScript and JavaScript out of the box —
+including native JSX support with no configuration. No fiddling with
+`tsconfig.json`, no setting up a separate build step, no wiring up a
+bundler. The CLI handles compilation, bundling, hot-reloading, and
+project scaffolding. Run `commandkit dev` and start building.
+
+## Who is this for?
+
+- **Beginners** who don't want to spend hours building command/event
+  handlers before they can do anything useful
+- **Experienced developers** who are tired of rebuilding the same
+  boilerplate for every new bot project
+- **Teams and freelancers** working on client projects who need a
+  reliable, structured foundation they can build on quickly
+
+CommandKit has been used in production client projects and has saved
+hours of setup time on each one. It's not overhead — it's the setup
+work you'd do anyway, already done well.
+
+## Get started
+
+```bash
+npm create commandkit
+```
+
+Then run `commandkit dev` and start building.
 
 ## Support and suggestions
 
