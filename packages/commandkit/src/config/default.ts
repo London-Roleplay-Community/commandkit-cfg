@@ -35,4 +35,5 @@ export const defaultConfig: ResolvedCommandKitConfig = {
     production: false,
   },
   jsxDefaultOptionalComponents: true,
+  srcDir: "src/bot"
 };
