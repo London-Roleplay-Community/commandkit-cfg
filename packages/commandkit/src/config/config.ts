@@ -44,6 +44,7 @@ export function defineConfig(
       ...(defaultConfig.entrypoints ?? []),
     ],
     distDir: config.distDir ?? defaultConfig.distDir,
+    srcDir: config.srcDir ?? defaultConfig.srcDir
     env: {
       ...defaultConfig.env,
       ...config.env,
