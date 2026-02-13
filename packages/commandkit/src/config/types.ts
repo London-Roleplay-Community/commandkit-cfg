@@ -119,4 +119,8 @@ export interface CommandKitConfig {
    * @default true
    */
   jsxDefaultOptionalComponents?: boolean;
+  /**
+   * commandkits default src folder
+   */
+  srcFolder?: boolean;
 }
